@@ -100,14 +100,3 @@ class MDP:
           " you will be sent at the first sign of defiance."
     assert None not in transition_probs, "please do not use None as a state identifier. " + msg
     assert None not in rewards, "please do not use None as an action identifier. " + msg
-
-  def render(self):
-    (rows, cols) = (3,3)
-    states = self.get_states()
-    env = np.zeros((rows,cols))
-
-    for idy, row in enumerate(env):
-      for idx, _ in enumerate(row):
-        env[rows-(idy+1)][idx] = states[(cols*idy+1)+idx-1]
-    
-    print(env)
